@@ -1,7 +1,7 @@
 <h2>Products:</h2><br>
 
 <% @products.each do |p| %>
-    <h2><%= p.name %></h2>
+    <h3><%= p.name %>:</h3>
     <div id="body-<%= p.id %>"><%= truncate p.description %></div>
     <button class="js-more" data-id="<%= p.id %>">More Info</button>
   <% end %>
@@ -14,9 +14,9 @@ $(function () {
             $.get("/products/" + id + "/inventory", function(inventory) {
                 $("#body-" + id).text(description).append(function() {
                     if (inventory === "true") {
-                        return "Available";
+                        return " Available";
                     } else {
-                        return "Sold Out";
+                        return " Sold Out";
                     }
                 });
             });
