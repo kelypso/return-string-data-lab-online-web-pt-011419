@@ -1,10 +1,10 @@
 <h2>Products:</h2><br>
 
 <% @products.each do |p| %>
-    <h3><%= p.name %>:</h3>
+    <h2><%= p.name %></h2>
     <div id="body-<%= p.id %>"><%= truncate p.description %></div>
-    <button class="js-more" data-id="<%= p.id %>">More...</button>
-<% end %>
+    <button class="js-more" data-id="<%= p.id %>">More Info</button>
+  <% end %>
 
 <script type="text/javascript" charset="utf-8">
 $(function () {
