@@ -4,3 +4,22 @@
     <h3><%= p.name %>:</h3>
     <div id="body-<%= p.id %>"><%= truncate p.description %></div>
 <% end %>
+
+<script type="text/javascript" charset="utf-8">
+$(function () {
+    $(".js-more").on('click', function() {
+        var id = $(this).data("id");
+        $.get("/products/" + id + "/description", function(description) {
+            $.get("/products/" + id + "/inventory", function(inventory) {
+                $("#body-" + id).text(description).append(function() {
+                    if (inventory === "true") {
+                        return "Available";
+                    } else {
+                        return "Sold Out";
+                    }
+                });
+            });
+        });
+    });
+});
+</script>
