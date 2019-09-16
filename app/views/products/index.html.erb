@@ -1,6 +1,6 @@
-<h1>Products:</h1><br>
+<h2>Products:</h2><br>
 
 <% @products.each do |p| %>
-    <h2><%= p.name %>:</h2>
+    <h3><%= p.name %>:</h3>
     <div id="body-<%= p.id %>"><%= truncate p.description %></div>
 <% end %>
